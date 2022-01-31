@@ -76,8 +76,12 @@ public class AutoMoveAway extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        // move back one tile
+        // TODO: test moving back one tile
         encoderDrive(DRIVE_SPEED, -ONE_TILE, -ONE_TILE, 10);
+        telemetry.addData("Path", "Straight");
+
+        // TODO: test 90 degree turn right
+        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN, -NINETY_DEGREE_TURN, 10);
         telemetry.addData("Path", "Straight");
 
         //stop
