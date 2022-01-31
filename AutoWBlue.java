@@ -34,8 +34,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-@Autonomous(name="AutoStrafe3TilesRed", group="Pushbot")
-public class AutoStrafe3TilesRed extends LinearOpMode {
+@Autonomous(name="AutoWBlue", group="Pushbot")
+public class AutoWBlue extends LinearOpMode {
 
     /* Declare OpMode members. */
     HardwareMap21         robot   = new HardwareMap21();
@@ -44,10 +44,14 @@ public class AutoStrafe3TilesRed extends LinearOpMode {
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;
     static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
-    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
-            (WHEEL_DIAMETER_INCHES * 3.1415);
+    static final double     COUNTS_PER_INCH         = 229.1831181;
+    // COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * π)
     static final double     DRIVE_SPEED             = 0.6;
     static final double     TURN_SPEED              = 0.5;
+    // adjustable values for easy testing
+    static final double     ONE_TILE                = 12;
+    static final double     NINETY_DEGREE_TURN      = 12;
+
 
     @Override
     public void runOpMode() {
@@ -73,16 +77,26 @@ public class AutoStrafe3TilesRed extends LinearOpMode {
                 robot.leftDrive.getCurrentPosition());
         telemetry.update();
 
-        // Wait for the game to start (driver presses PLAY)
+        // wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        /* code here */
-
-        /*
-        // example: move one tile
-        encoderDrive(DRIVE_SPEED,  12,  12,10);
+        // move back two tiles
+        encoderDrive(DRIVE_SPEED, -2 * ONE_TILE, -2 * ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
-         */
+
+        // 90 degree turn right
+        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN, -NINETY_DEGREE_TURN, 10);
+        telemetry.addData("Path", "Straight");
+
+        // outtake
+        sleep(0);
+        robot.outtake.setPower(-0.5);
+        sleep(2000);
+        robot.outtake.setPower(0);
+
+        // move forward three tiles
+        encoderDrive(DRIVE_SPEED, 3 * ONE_TILE, 3 * ONE_TILE, 10);
+        telemetry.addData("Path", "Straight");
 
         //stop
         robot.rightDrive.setPower(0);
