@@ -84,7 +84,7 @@ public class AutoCBlueHub extends LinearOpMode {
         encoderDrive(DRIVE_SPEED, -ONE_TILE, -ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
-        // TODO: check carousel direction + yeet function
+        // carousel
         sleep(0);
         robot.carousel.setPower(-0.5);
         sleep(2000);

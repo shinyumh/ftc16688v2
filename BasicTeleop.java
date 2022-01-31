@@ -90,12 +90,23 @@ public class BasicTeleop extends LinearOpMode {
             // robot.rightDrive.setPower((gamepad1.left_stick_y - gamepad1.left_stick_x + gamepad1.right_stick_x) * (-speedAdjust / 10));
 
             // a & b buttons - spin carousel
-            if (gamepad1.a) {
+            // TODO: TEST
+            while (gamepad1.a) {
+              if (robot.carousel.GetPosition() < 1800) {
                 robot.carousel.setPower(5);
-            } else if (gamepad1.b){
+              }
+              else {
+                robot.carousel.setPower(10);
+              }
+            }
+
+            while (gamepad1.a) {
+              if (robot.carousel.GetPosition() < 1800) {
                 robot.carousel.setPower(-5);
-            } else {
-                robot.carousel.setPower(0);
+              }
+              else {
+                robot.carousel.setPower(-10);
+              }
             }
 
             // x & y buttons - control the outtake
