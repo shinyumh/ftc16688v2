@@ -90,7 +90,6 @@ public class BasicTeleop extends LinearOpMode {
             // robot.rightDrive.setPower((gamepad1.left_stick_y - gamepad1.left_stick_x + gamepad1.right_stick_x) * (-speedAdjust / 10));
 
             // a & b buttons - spin carousel with varying speeds
-            // TODO: TEST
             if (gamepad1.a) {
                 robot.carousel.setPower(0.5);
             } else if (gamepad1.x) {
