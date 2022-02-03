@@ -82,8 +82,19 @@ public class AutoCRedWare extends LinearOpMode {
 
         // orientation: the carousel facing carousel
 
-        //turn right a little
-        encoderDrive(DRIVE_SPEED, -3,3,10);
+        // small adjustments to align with te carousel
+        // right a bit
+        encoderDrive(DRIVE_SPEED, 2, -2, 10);
+        telemetry.addData("Path", "Straight");
+        // forward a bit
+        encoderDrive(DRIVE_SPEED, -2, -2, 10);
+        telemetry.addData("Path", "Straight");
+        // left a bit
+        encoderDrive(DRIVE_SPEED, -2, 2, 10);
+        telemetry.addData("Path", "Straight");
+        // bakcward a bit
+        encoderDrive(DRIVE_SPEED, -2, -2, 10);
+        telemetry.addData("Path", "Straight");
 
         // move back 1 tile
         encoderDrive(DRIVE_SPEED, -ONE_TILE, -ONE_TILE, 10);

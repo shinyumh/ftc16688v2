@@ -83,13 +83,18 @@ public class AutoCBlueWare extends LinearOpMode {
         encoderDrive(DRIVE_SPEED, -ONE_TILE, -ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
+        //turn right a little to connect carousel to the carousel
+        encoderDrive(DRIVE_SPEED, -3,3,10);
+        telemetry.addData("Path", "Straight");
+
+        // carousel
         sleep(0);
         robot.carousel.setPower(-0.9);
         sleep(5000);
         robot.carousel.setPower(0);
 
         // 90 degree turn right
-        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN, -NINETY_DEGREE_TURN, 10);
+        encoderDrive(DRIVE_SPEED, 0.6 * NINETY_DEGREE_TURN, -0.6 * NINETY_DEGREE_TURN, 10);
         telemetry.addData("Path", "Straight");
 
         // move forward 1 tile

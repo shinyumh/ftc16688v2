@@ -94,6 +94,20 @@ public class AutoWBlue extends LinearOpMode {
         sleep(2000);
         robot.outtake.setPower(0);
 
+        // small adjustments to get momentum over the barrier
+        // left a bit
+        encoderDrive(DRIVE_SPEED, -2, 2, 10);
+        telemetry.addData("Path", "Straight");
+        // forward a bit
+        encoderDrive(DRIVE_SPEED, -2, -2, 10);
+        telemetry.addData("Path", "Straight");
+        // right a bit
+        encoderDrive(DRIVE_SPEED, 2, -2, 10);
+        telemetry.addData("Path", "Straight");
+        // bakcward a bit
+        encoderDrive(DRIVE_SPEED, -2, -2, 10);
+        telemetry.addData("Path", "Straight");
+
         // move forward three tiles
         encoderDrive(DRIVE_SPEED, 3 * ONE_TILE, 3 * ONE_TILE, 10);
         telemetry.addData("Path", "Straight");

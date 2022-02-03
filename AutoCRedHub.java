@@ -100,7 +100,7 @@ public class AutoCRedHub extends LinearOpMode {
         encoderDrive(DRIVE_SPEED, -NINETY_DEGREE_TURN*1.2, NINETY_DEGREE_TURN*1.2, 10);
         telemetry.addData("Path", "Straight");
 
-        // move forward 1 tile
+        // move forward 1 tile - aligns itself with the wall
         encoderDrive(DRIVE_SPEED, ONE_TILE*0.7, ONE_TILE*0.7, 10);
         telemetry.addData("Path", "Straight");
 
