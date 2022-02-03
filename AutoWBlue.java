@@ -49,8 +49,8 @@ public class AutoWBlue extends LinearOpMode {
     static final double     DRIVE_SPEED             = 0.6;
     static final double     TURN_SPEED              = 0.5;
     // adjustable values for easy testing
-    static final double     ONE_TILE                = 12;
-    static final double     NINETY_DEGREE_TURN      = 12;
+    static final double     ONE_TILE                = -12;
+    static final double     NINETY_DEGREE_TURN      = -5.1;
 
 
     @Override
@@ -90,7 +90,7 @@ public class AutoWBlue extends LinearOpMode {
 
         // outtake
         sleep(0);
-        robot.outtake.setPower(-0.5);
+        robot.outtake.setPower(0.7);
         sleep(2000);
         robot.outtake.setPower(0);
 

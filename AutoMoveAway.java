@@ -44,10 +44,13 @@ public class AutoMoveAway extends LinearOpMode {
     static final double     COUNTS_PER_MOTOR_REV    = 1440 ;
     static final double     DRIVE_GEAR_REDUCTION    = 2.0 ;
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
-    static final double     COUNTS_PER_INCH         = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) /
-            (WHEEL_DIAMETER_INCHES * 3.1415);
+    static final double     COUNTS_PER_INCH         = 229.1831181;
+    // COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * π)
     static final double     DRIVE_SPEED             = 0.6;
     static final double     TURN_SPEED              = 0.5;
+    // adjustable values for easy testing
+    static final double     ONE_TILE                = 12;
+    static final double     NINETY_DEGREE_TURN      = 5.1;
 
     @Override
     public void runOpMode() {
@@ -80,9 +83,7 @@ public class AutoMoveAway extends LinearOpMode {
         encoderDrive(DRIVE_SPEED, -ONE_TILE, -ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
-        // TODO: test 90 degree turn right
-        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN, -NINETY_DEGREE_TURN, 10);
-        telemetry.addData("Path", "Straight");
+
 
         //stop
         robot.rightDrive.setPower(0);

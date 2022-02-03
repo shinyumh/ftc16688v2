@@ -49,8 +49,8 @@ public class AutoCBlueHub extends LinearOpMode {
     static final double     DRIVE_SPEED             = 0.6;
     static final double     TURN_SPEED              = 0.5;
     // adjustable values for easy testing
-    static final double     ONE_TILE                = 12;
-    static final double     NINETY_DEGREE_TURN      = 12;
+    static final double     ONE_TILE                = -12;
+    static final double     NINETY_DEGREE_TURN      = -5.1;
 
 
     @Override
@@ -86,7 +86,7 @@ public class AutoCBlueHub extends LinearOpMode {
 
         // carousel
         sleep(0);
-        robot.carousel.setPower(-0.5);
+        robot.carousel.setPower(-0.9);
         sleep(2000);
         robot.carousel.setPower(0);
 

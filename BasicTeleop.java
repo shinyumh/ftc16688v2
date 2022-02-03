@@ -59,7 +59,7 @@ public class BasicTeleop extends LinearOpMode {
         robot.rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         robot.outtake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        robot.carousel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        robot.carousel.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
         // set direction of wheels -need to rename and change
         robot.leftDrive.setDirection(DcMotor.Direction.REVERSE);
@@ -91,29 +91,30 @@ public class BasicTeleop extends LinearOpMode {
 
             // a & b buttons - spin carousel
             // TODO: TEST
-            while (gamepad1.a) {
-              if (robot.carousel.GetPosition() < 1800) {
-                robot.carousel.setPower(5);
-              }
-              else {
-                robot.carousel.setPower(10);
-              }
+            if (gamepad1.a) {
+                sleep(0);
+                robot.carousel.setPower(0.5);
+                sleep(3000);
+                robot.carousel.setPower(1);
+            } else {
+                robot.carousel.setPower(0);
             }
 
-            while (gamepad1.a) {
-              if (robot.carousel.GetPosition() < 1800) {
-                robot.carousel.setPower(-5);
-              }
-              else {
-                robot.carousel.setPower(-10);
-              }
+            if (gamepad1.b) {
+                sleep(0);
+                robot.carousel.setPower(-0.5);
+                sleep(3000);
+                robot.carousel.setPower(-1);
+            } else {
+                robot.carousel.setPower(0);
             }
+
 
             // x & y buttons - control the outtake
             if (gamepad2.x) {
-                robot.outtake.setPower(1);
+                robot.outtake.setPower(0.5);
             } else if (gamepad2.y) {
-                robot.outtake.setPower(-1);
+                robot.outtake.setPower(-0.5);
             } else {
                 robot.outtake.setPower(0);
             }

@@ -49,8 +49,8 @@ public class AutoCBlueWare extends LinearOpMode {
     static final double     DRIVE_SPEED             = 0.6;
     static final double     TURN_SPEED              = 0.5;
     // adjustable values for easy testing
-    static final double     ONE_TILE                = 12;
-    static final double     NINETY_DEGREE_TURN      = 12;
+    static final double     ONE_TILE                = -12;
+    static final double     NINETY_DEGREE_TURN      = -5.1;
 
     @Override
     public void runOpMode() {
@@ -83,10 +83,9 @@ public class AutoCBlueWare extends LinearOpMode {
         encoderDrive(DRIVE_SPEED, -ONE_TILE, -ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
-        // TODO: check carousel direction
         sleep(0);
-        robot.carousel.setPower(-0.5);
-        sleep(2000);
+        robot.carousel.setPower(-0.9);
+        sleep(5000);
         robot.carousel.setPower(0);
 
         // 90 degree turn right

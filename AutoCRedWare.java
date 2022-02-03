@@ -46,11 +46,11 @@ public class AutoCRedWare extends LinearOpMode {
     static final double     WHEEL_DIAMETER_INCHES   = 4.0 ;
     static final double     COUNTS_PER_INCH         = 229.1831181;
     // COUNTS_PER_INCH = (COUNTS_PER_MOTOR_REV * DRIVE_GEAR_REDUCTION) / (WHEEL_DIAMETER_INCHES * π)
-    static final double     DRIVE_SPEED             = 0.6;
+    static final double     DRIVE_SPEED             = 3;
     static final double     TURN_SPEED              = 0.5;
     // adjustable values for easy testing
-    static final double     ONE_TILE                = 12;
-    static final double     NINETY_DEGREE_TURN      = 12;
+    static final double     ONE_TILE                = -12;
+    static final double     NINETY_DEGREE_TURN      = -5.1;
 
 
     @Override
@@ -80,30 +80,35 @@ public class AutoCRedWare extends LinearOpMode {
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
 
+        // orientation: the carousel facing carousel
+
+        //turn right a little
+        encoderDrive(DRIVE_SPEED, -3,3,10);
+
         // move back 1 tile
         encoderDrive(DRIVE_SPEED, -ONE_TILE, -ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
-        // TODO: check carousel direction
+        // spin carousel
         sleep(0);
-        robot.carousel.setPower(-0.5);
-        sleep(2000);
+        robot.carousel.setPower(0.9);
+        sleep(5000);
         robot.carousel.setPower(0);
 
         // 90 degree turn left
-        encoderDrive(DRIVE_SPEED, -NINETY_DEGREE_TURN, NINETY_DEGREE_TURN, 10);
+        encoderDrive(DRIVE_SPEED, -NINETY_DEGREE_TURN*1.2, NINETY_DEGREE_TURN*1.2, 10);
         telemetry.addData("Path", "Straight");
 
         // move forward 1 tile
-        encoderDrive(DRIVE_SPEED, ONE_TILE, ONE_TILE, 10);
+        encoderDrive(DRIVE_SPEED, ONE_TILE*0.8, ONE_TILE*0.8, 10);
         telemetry.addData("Path", "Straight");
 
         // 90 degree turn right
-        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN, -NINETY_DEGREE_TURN, 10);
+        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN*1.1, -NINETY_DEGREE_TURN*1.1, 10);
         telemetry.addData("Path", "Straight");
 
-        // move forward five tiles
-        encoderDrive(DRIVE_SPEED, 5 * ONE_TILE, 5 * ONE_TILE, 10);
+        // move forward six tiles
+        encoderDrive(DRIVE_SPEED+0.4, 6 * ONE_TILE, 6 * ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
         //stop
