@@ -82,19 +82,8 @@ public class AutoCRedWare extends LinearOpMode {
 
         // orientation: the carousel facing carousel
 
-        // small adjustments to align with te carousel
-        // right a bit
-        encoderDrive(DRIVE_SPEED, 2, -2, 10);
-        telemetry.addData("Path", "Straight");
-        // forward a bit
-        encoderDrive(DRIVE_SPEED, -2, -2, 10);
-        telemetry.addData("Path", "Straight");
-        // left a bit
-        encoderDrive(DRIVE_SPEED, -2, 2, 10);
-        telemetry.addData("Path", "Straight");
-        // bakcward a bit
-        encoderDrive(DRIVE_SPEED, -2, -2, 10);
-        telemetry.addData("Path", "Straight");
+        //turn right a little
+        encoderDrive(DRIVE_SPEED, -3,3,10);
 
         // move back 1 tile
         encoderDrive(DRIVE_SPEED, -ONE_TILE, -ONE_TILE, 10);
@@ -110,16 +99,16 @@ public class AutoCRedWare extends LinearOpMode {
         encoderDrive(DRIVE_SPEED, -NINETY_DEGREE_TURN*1.2, NINETY_DEGREE_TURN*1.2, 10);
         telemetry.addData("Path", "Straight");
 
-        // move forward 1 tile
-        encoderDrive(DRIVE_SPEED, ONE_TILE*0.8, ONE_TILE*0.8, 10);
+        // move forward 1 tile - aligns itself with the wall
+        encoderDrive(DRIVE_SPEED, ONE_TILE*0.7, ONE_TILE*0.7, 10);
         telemetry.addData("Path", "Straight");
 
         // 90 degree turn right
-        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN*1.1, -NINETY_DEGREE_TURN*1.1, 10);
+        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN, -NINETY_DEGREE_TURN, 10);
         telemetry.addData("Path", "Straight");
 
         // move forward six tiles
-        encoderDrive(DRIVE_SPEED+0.4, 6 * ONE_TILE, 6 * ONE_TILE, 10);
+        encoderDrive(DRIVE_SPEED+0.4, 4.5 * ONE_TILE, 4.5 * ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
         //stop

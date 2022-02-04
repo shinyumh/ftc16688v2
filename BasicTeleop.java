@@ -78,9 +78,9 @@ public class BasicTeleop extends LinearOpMode {
             // POV Mode uses left stick to go forward, and right stick to turn.
             // uses basic math to combine motions and is easier to drive straight.
             double drive = gamepad1.left_stick_y;
-            double turn  = -gamepad1.right_stick_x;
-            leftPower    = Range.clip(drive + turn, -1.0, 1.0) ;
-            rightPower   = Range.clip(drive - turn, -1.0, 1.0) ;
+            double turn = -gamepad1.right_stick_x;
+            leftPower = Range.clip(drive + turn, -1.0, 1.0);
+            rightPower = Range.clip(drive - turn, -1.0, 1.0);
 
             robot.leftDrive.setPower(leftPower);
             robot.rightDrive.setPower(rightPower);
@@ -89,16 +89,12 @@ public class BasicTeleop extends LinearOpMode {
             // robot.leftDrive.setPower((gamepad1.left_stick_y +  gamepad1.left_stick_x - gamepad1.right_stick_x) * (-speedAdjust / 10));
             // robot.rightDrive.setPower((gamepad1.left_stick_y - gamepad1.left_stick_x + gamepad1.right_stick_x) * (-speedAdjust / 10));
 
-            // a & b buttons - spin carousel with varying speeds
+            // a, b, y & x buttons - spin carousel with varying speeds
             if (gamepad1.a) {
                 robot.carousel.setPower(0.5);
             } else if (gamepad1.x) {
                 robot.carousel.setPower(1);
-            } else
-                robot.carousel.setPower(0);
-            }
-
-            if (gamepad1.b) {
+            } else if (gamepad1.b) {
                 robot.carousel.setPower(-0.5);
             } else if (gamepad1.y) {
                 robot.carousel.setPower(-1);
@@ -106,17 +102,17 @@ public class BasicTeleop extends LinearOpMode {
                 robot.carousel.setPower(0);
             }
 
-
+            // gamepad 2
             // x & y buttons - control the outtake
             if (gamepad2.x) {
-                robot.outtake.setPower(0.5);
+                robot.outtake.setPower(0.3);
             } else if (gamepad2.y) {
-                robot.outtake.setPower(-0.5);
+                robot.outtake.setPower(-0.3);
             } else {
                 robot.outtake.setPower(0);
             }
 
-            // right & left triggers  - control intake
+            // a & b buttons  - control intake
             if (gamepad2.a) {
                 robot.intake.setPower(1);
             } else if (gamepad2.b) {

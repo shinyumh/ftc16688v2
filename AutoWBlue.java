@@ -80,36 +80,42 @@ public class AutoWBlue extends LinearOpMode {
         // wait for the game to start (driver presses PLAY)
         waitForStart();
 
-        // move back two tiles
-        encoderDrive(DRIVE_SPEED, -2 * ONE_TILE, -2 * ONE_TILE, 10);
-        telemetry.addData("Path", "Straight");
-
-        // 90 degree turn right
-        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN, -NINETY_DEGREE_TURN, 10);
+        // move back one tiles
+        encoderDrive(DRIVE_SPEED, -ONE_TILE*0.8, -ONE_TILE*0.8, 10);
         telemetry.addData("Path", "Straight");
 
         // outtake
         sleep(0);
-        robot.outtake.setPower(0.7);
+        robot.outtake.setPower(-0.3);
         sleep(2000);
         robot.outtake.setPower(0);
 
+        //backup a little
+        encoderDrive(DRIVE_SPEED, ONE_TILE*0.2, ONE_TILE*0.2, 10);
+        telemetry.addData("Path", "Straight");
+
+        // 90 degree turn left
+        encoderDrive(DRIVE_SPEED, NINETY_DEGREE_TURN, -NINETY_DEGREE_TURN, 10);
+        telemetry.addData("Path", "Straight");
+
+        /*
         // small adjustments to get momentum over the barrier
-        // left a bit
-        encoderDrive(DRIVE_SPEED, -2, 2, 10);
+        // right a bit
+        encoderDrive(DRIVE_SPEED, 2, -2, 10);
         telemetry.addData("Path", "Straight");
         // forward a bit
         encoderDrive(DRIVE_SPEED, -2, -2, 10);
         telemetry.addData("Path", "Straight");
-        // right a bit
-        encoderDrive(DRIVE_SPEED, 2, -2, 10);
+        // left a bit
+        encoderDrive(DRIVE_SPEED, -2, 2, 10);
         telemetry.addData("Path", "Straight");
         // bakcward a bit
         encoderDrive(DRIVE_SPEED, -2, -2, 10);
         telemetry.addData("Path", "Straight");
+*/
 
-        // move forward three tiles
-        encoderDrive(DRIVE_SPEED, 3 * ONE_TILE, 3 * ONE_TILE, 10);
+        // move forward five tiles
+        encoderDrive(DRIVE_SPEED, 4 * ONE_TILE, 4 * ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
         //stop

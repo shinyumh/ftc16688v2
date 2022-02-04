@@ -84,7 +84,7 @@ public class AutoCBlueWare extends LinearOpMode {
         telemetry.addData("Path", "Straight");
 
         //turn right a little to connect carousel to the carousel
-        encoderDrive(DRIVE_SPEED, -3,3,10);
+        encoderDrive(DRIVE_SPEED, -5,5,10);
         telemetry.addData("Path", "Straight");
 
         // carousel
@@ -94,19 +94,19 @@ public class AutoCBlueWare extends LinearOpMode {
         robot.carousel.setPower(0);
 
         // 90 degree turn right
-        encoderDrive(DRIVE_SPEED, 0.6 * NINETY_DEGREE_TURN, -0.6 * NINETY_DEGREE_TURN, 10);
+        encoderDrive(DRIVE_SPEED, 0.8 * NINETY_DEGREE_TURN, -0.8 * NINETY_DEGREE_TURN, 10);
         telemetry.addData("Path", "Straight");
 
         // move forward 1 tile
-        encoderDrive(DRIVE_SPEED, ONE_TILE, ONE_TILE, 10);
+        encoderDrive(DRIVE_SPEED, ONE_TILE*0.6, ONE_TILE*0.6, 10);
         telemetry.addData("Path", "Straight");
 
         // 90 degree turn left
-        encoderDrive(DRIVE_SPEED, -NINETY_DEGREE_TURN, NINETY_DEGREE_TURN, 10);
+        encoderDrive(DRIVE_SPEED, -NINETY_DEGREE_TURN*1.2, NINETY_DEGREE_TURN*1.2, 10);
         telemetry.addData("Path", "Straight");
 
-        // move forward five tiles
-        encoderDrive(DRIVE_SPEED, 5 * ONE_TILE, 5 * ONE_TILE, 10);
+        // move forward six tiles
+        encoderDrive(DRIVE_SPEED+0.4, 4.5 * ONE_TILE, 4.5 * ONE_TILE, 10);
         telemetry.addData("Path", "Straight");
 
         //stop

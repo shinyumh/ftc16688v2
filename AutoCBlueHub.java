@@ -85,7 +85,7 @@ public class AutoCBlueHub extends LinearOpMode {
         telemetry.addData("Path", "Straight");
 
         //turn right a little to connect carousel to the carousel
-        encoderDrive(DRIVE_SPEED, -3,3,10);
+        encoderDrive(DRIVE_SPEED, -5,5,10);
         telemetry.addData("Path", "Straight");
 
         // carousel
@@ -99,7 +99,7 @@ public class AutoCBlueHub extends LinearOpMode {
         telemetry.addData("Path", "Straight");
 
         // move forward 1 tile
-        encoderDrive(DRIVE_SPEED, ONE_TILE, ONE_TILE, 10);
+        encoderDrive(DRIVE_SPEED, ONE_TILE*0.7, ONE_TILE*0.7, 10);
         telemetry.addData("Path", "Straight");
 
         //stop
